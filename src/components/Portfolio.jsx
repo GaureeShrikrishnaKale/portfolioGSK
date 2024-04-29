@@ -8,192 +8,220 @@ import {
   Typography,
 } from "@mui/material";
 import resumeData from "../utils/resumeData";
+import resume from "../assets/Resume/GaureeKaleResume.pdf";
+import profileImage from "../assets/images/UserImage.png";
+import { Download } from "@mui/icons-material";
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SchoolIcon from '@mui/icons-material/School';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 
 const Portfolio = () => {
   const handleDownloadCV = () => {
-    // Handle the logic to download the CV
-    // You can create a PDF or provide a link to your CV file
-    alert("Download CV functionality to be implemented.");
+    const cvUrl = resume;
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'GaureeKaleResume.pdf'; // Set the filename for download
+    document.body.appendChild(link);
+
+    // Trigger the download
+    link.click();
+
+    // Clean up
+    document.body.removeChild(link);
   };
 
   return (
-    <Grid container spacing={3} overflow="auto">
+    <Grid container item xs={12} spacing={4} overflow="auto">
       {/* Personal Info */}
-      <Grid item xs={12} mt={4}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5" sx={{ alignContent: "center" }}>
-              Personal Information
+        <Grid item xs={12} lg={4} display={"flex"} justifyContent={"center"}>
+        <Grid className="box">
+          <Grid className="content">
+            <img src={profileImage}/>
+            <Typography variant="h2">
+             Gauree Kale <br/> <span>Full Stack Developer</span>
             </Typography>
-            <Typography>First Name: {resumeData.firstName}</Typography>
-            <Typography>Last Name: {resumeData.surName}</Typography>
-            <Typography>Birthdate: {resumeData.birthday}</Typography>
-            <Typography>Nationality: {resumeData.nationality}</Typography>
-            <Typography>Languages: {resumeData.languages}</Typography>
-            <Typography>Phone No: {resumeData.phone}</Typography>
-            <Typography>Email: {resumeData.email}</Typography>
+            <br/>
+            <a href="#">Contact</a>
+          </Grid>
+        </Grid>
+        </Grid>
+        <Grid item xs={12} lg={8} sx={{color: "white", alignSelf: "center", display: "flex", flexDirection: "column", justifyContent: "center"}} >
+          <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2 }}>
+            Personal Information
+          </Typography>
+          <Grid sx={{display: "flex", flexDirection: 'row', ml: 2}}>
+            <Grid item xs={6} className="portfolio-details-text" >
+              <Typography variant="h5">First Name: <span>{resumeData.firstName}</span> </Typography>
+              <Typography variant="h5">Birthdate: <span>{resumeData.birthday}</span></Typography>
+              <Typography variant="h5">Languages: <span>{resumeData.languages}</span></Typography>
+              <Typography variant="h5">Email: <span>{resumeData.email}</span></Typography>
+            </Grid>
+
+            <Grid item xs={6} className="portfolio-details-text">
+              <Typography variant="h5">Last Name: <span>{resumeData.surName}</span></Typography>
+              <Typography variant="h5">Nationality: <span>{resumeData.nationality}</span></Typography>
+              <Typography variant="h5">Phone No: <span>{resumeData.phone}</span></Typography>
+              <Typography variant="h5">Freelance: <span>Available</span></Typography>
+            </Grid> 
+          </Grid>
+          
+          <Grid className="cv-button"> 
             <Button variant="contained" onClick={handleDownloadCV}>
+              <Download sx={{mr: 1, borderRadius: "15px", border: "solid white 2px"}}/>
               Download CV
             </Button>
-          </CardContent>
-        </Card>
-      </Grid>
+          </Grid>
+          
+        </Grid>
 
       {/* Skills */}
       <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5">Skills</Typography>
-            {/* Cards for each skill */}
-            <Grid container spacing={2}>
-              {/* Map over skills and create a card for each skill */}
-              {resumeData.skills.map((skill) => (
-                <Grid item xs={6} md={4} key={skill}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h6">{skill}</Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
+        <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Skills</Typography>
+        {/* Cards for each skill */}
+        <Grid container xs={12} spacing={2}>
+          {/* Map over skills and create a card for each skill */}
+          {resumeData.skills.map((skill) => (
+            <Grid item xs={6} sm={4} md={3} key={skill.name}>
+              <Card className="skill-card">
+                <CardContent>
+                  {skill.name === "C" ? 
+                  <Typography><span dangerouslySetInnerHTML={{ __html: skill.icon }} /></Typography> 
+                  :
+                  (<img src={skill.icon} height={"80px"} width={"80px"} style={{marginTop: "10px", marginBottom: "10px"}} />)}
+                  <Typography variant="h6" sx={{color: skill.color, fontWeight: "bold"}}>{skill.name}</Typography>
+                </CardContent>
+              </Card>
             </Grid>
-          </CardContent>
-        </Card>
+          ))}
+        </Grid>  
       </Grid>
 
       {/*Other Skills*/}
       <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5">Other Skills</Typography>
-            {/* Cards for each skill */}
-            <Grid container spacing={2}>
-              {/* Map over skills and create a card for each skill */}
-              {resumeData.otherSkills.map((skill) => (
-                <Grid item xs={6} md={4} key={skill}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h6">{skill}</Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
+        <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Other Skills</Typography>
+        {/* Cards for each skill */}
+        <Grid container xs={12} spacing={2}>
+          {/* Map over skills and create a card for each skill */}
+          {resumeData.otherSkills.map((skill) => (
+            <Grid item xs={6} sm={4} md={3} key={skill.name} className="other-skill-card">
+                  <img src={skill.icon} style={{marginTop: "10px", marginBottom: "10px"}} />
+                  <Typography variant="h6" sx={{color: skill.color}}>{skill.name}</Typography>
             </Grid>
-          </CardContent>
-        </Card>
-      </Grid>
-
-      {/*Extracurricular*/}
-      <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5">Extracurricular</Typography>
-            {/* Cards for each skill */}
-            <Grid container spacing={2}>
-              {/* Map over skills and create a card for each skill */}
-              {resumeData.extracurricular.map((skill) => (
-                <Grid item xs={6} md={4} key={skill}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h6">{skill}</Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </CardContent>
-        </Card>
+          ))}
+        </Grid>
       </Grid>
 
       {/* Educational Journey */}
-      <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5">Educational Journey</Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={6} md={4}>
-                <Card>
-                  <CardContent>
-                    <Typography>SSC</Typography>
-                    <Typography>{resumeData.educational.SSC.name}</Typography>
-                    <Typography>{resumeData.educational.SSC.score}</Typography>
-                  </CardContent>
-                </Card>
+      <Grid item xs={12} sm={6}>
+        <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Education</Typography>
+        <Grid container xs={12} spacing={2}>
+          <Grid item xs={12}>
+            <Grid className="row">
+              <Grid>
+                <ImportContactsIcon className="icon-education"/>
+                <Grid className="vertical-line">
+                </Grid>
               </Grid>
-              <Grid item xs={6} md={4}>
-                <Card>
-                  <CardContent>
-                    <Typography>HSC</Typography>
-                    <Typography>{resumeData.educational.HSC.name}</Typography>
-                    <Typography>{resumeData.educational.HSC.score}</Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={6} md={4}>
-                <Card>
-                  <CardContent>
-                    <Typography>Graduation</Typography>
-                    <Typography>
-                      {resumeData.educational.graduation.name}
-                    </Typography>
-                    <Typography>
-                      {resumeData.educational.graduation.score}
-                    </Typography>
-                  </CardContent>
-                </Card>
+              <Grid className="edu-details-text">
+                <Typography className="year-text">Jun/2016 - March/2017</Typography>
+                <Typography variant="h6">SSC</Typography>
+                <Typography variant="h6">{resumeData.educational.SSC.name}</Typography>
+                <Typography variant="h6">{resumeData.educational.SSC.score}</Typography>
               </Grid>
             </Grid>
-          </CardContent>
-        </Card>
+          </Grid>
+          <Grid item xs={12} >
+            <Grid className="row">
+              <Grid>
+                <ImportContactsIcon className="icon-education"/>
+                <Grid className="vertical-line">
+                </Grid>
+              </Grid>
+              <Grid className="edu-details-text">
+                <Typography className="year-text">Jul/2017 - Feb/2019</Typography>
+                <Typography variant="h6">HSC</Typography>
+                <Typography variant="h6">{resumeData.educational.HSC.name}</Typography>
+                <Typography variant="h6">{resumeData.educational.HSC.score}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+          <Grid className="row">
+              <Grid>
+                <SchoolIcon className="icon-education"/>
+                <Grid className="vertical-line">
+                </Grid>
+              </Grid>
+              <Grid className="edu-details-text">
+                <Typography className="year-text">Aug/2019 - May/2023</Typography>
+                <Typography variant="h6">Graduation</Typography>
+                <Typography variant="h6">
+                  {resumeData.educational.graduation.name}
+                </Typography>
+                <Typography variant="h6">
+                  {resumeData.educational.graduation.score}
+                </Typography>
+              </Grid>
+            </Grid>
+                
+          </Grid>
+        </Grid>
       </Grid>
 
       {/* Experience */}
-      <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5">Experience</Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <Card>
-                  <CardContent>
-                    <Typography>
-                      {resumeData.experiance.internship.duration}
-                    </Typography>
-                    <Typography>
-                      {resumeData.experiance.internship.name}
-                    </Typography>
-                    <Grid container spacing={2}>
-                      {resumeData.experiance.internship.skills.map((skill) => (
-                        <Grid item xs={6} md={3} key={skill}>
-                          <Paper>{skill}</Paper>
-                        </Grid>
-                      ))}
+      <Grid item xs={12} sm={6}>
+        <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Experience</Typography>
+        <Grid container xs={12} spacing={2}>
+          <Grid item xs={12} >
+                <Typography>
+                  {resumeData.experiance.internship.duration}
+                </Typography>
+                <Typography>
+                  {resumeData.experiance.internship.name}
+                </Typography>
+                <Grid container spacing={2}>
+                  {resumeData.experiance.internship.skills.map((skill) => (
+                    <Grid item xs={6} md={3} key={skill}>
+                      <Paper>{skill}</Paper>
                     </Grid>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Card>
-                  <CardContent>
-                    <Typography>
-                      {resumeData.experiance.fullTime.duration}
-                    </Typography>
-                    <Typography>
-                      {resumeData.experiance.fullTime.name}
-                    </Typography>
-                    <Grid container spacing={2}>
-                      {resumeData.experiance.fullTime.skills.map((skill) => (
-                        <Grid item xs={6} md={3} key={skill}>
-                          <Paper>{skill}</Paper>
-                        </Grid>
-                      ))}
+                  ))}
+                </Grid>
+          </Grid>
+          <Grid item xs={12} >
+                <Typography>
+                  {resumeData.experiance.fullTime.duration}
+                </Typography>
+                <Typography>
+                  {resumeData.experiance.fullTime.name}
+                </Typography>
+                <Grid container spacing={2}>
+                  {resumeData.experiance.fullTime.skills.map((skill) => (
+                    <Grid item xs={6} md={3} key={skill}>
+                      <Paper>{skill}</Paper>
                     </Grid>
-                  </CardContent>
-                </Card>
-              </Grid>
+                  ))}
+                </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+
+         {/*Extracurricular*/}
+         <Grid item xs={12}>
+        <Typography variant="h5" sx={{color: "white", textAlign: "center"}}>Extracurricular</Typography>
+        {/* Cards for each skill */}
+        <Grid container spacing={2}>
+          {/* Map over skills and create a card for each skill */}
+          {resumeData.extracurricular.map((skill) => (
+            <Grid item xs={12}  key={skill}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6">{skill}</Typography>
+                </CardContent>
+              </Card>
             </Grid>
-          </CardContent>
-        </Card>
+          ))}
+        </Grid>
       </Grid>
     </Grid>
   );
