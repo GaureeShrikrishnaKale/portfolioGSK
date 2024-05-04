@@ -56,7 +56,7 @@ export default {
   ],
   extracurricular: [
     {name: "Reading", icon: ReadingIcon}, 
-    {name: "Exploring music with the Bamboo Flute!", icon: FluteIcon}
+    {name: "Exploring music", icon: FluteIcon}
   ],
   educational: {
     SSC: {
