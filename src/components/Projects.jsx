@@ -38,7 +38,7 @@ const Projects = () => {
   return (
   <>
     <Grid className="center-column">
-      <Grid sx={{display: {
+      {/* <Grid sx={{display: {
       xs: 'none',
       sm: 'none',
       md: 'none',
@@ -47,7 +47,6 @@ const Projects = () => {
     }}}>
         <video src={smokebg} autoPlay muted></video>
         <Typography className="project-title">
-          {/* My Projects */}
           <span>M</span>
           <span>Y</span>
           <span>P</span>
@@ -59,7 +58,7 @@ const Projects = () => {
           <span>T</span>
           <span>S</span>
         </Typography>
-      </Grid>
+      </Grid> */}
 
       {/* <Grid sx={{display: {
       xs: 'flex',
