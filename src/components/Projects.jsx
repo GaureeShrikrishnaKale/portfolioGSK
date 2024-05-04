@@ -61,7 +61,7 @@ const Projects = () => {
         </Typography>
       </Grid>
 
-      <Grid sx={{display: {
+      {/* <Grid sx={{display: {
       xs: 'flex',
       sm: 'flex',
       md: 'flex',
@@ -69,7 +69,7 @@ const Projects = () => {
       xl: 'flex',
     }, flexDirection: 'column',  textAlign: "center"}}>
         <Typography sx={{color: "white", textAlign: "center", fontSize: "30px", fontWeight: "bold"}}>My Projects</Typography>
-      </Grid>
+      </Grid> */}
 
       <Grid className="slider">
         <Grid className="slide-track">
