@@ -199,7 +199,7 @@ code {
 
 .center-column {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   justify-content: center;
   align-items: center;
 }
@@ -296,7 +296,7 @@ code {
 }
 
 .slider {
-  padding-top: 120px;
+  padding-top: 80px;
   height: 250px;
   margin: 0 auto;
   position: relative;

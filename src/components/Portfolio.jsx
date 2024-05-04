@@ -233,13 +233,13 @@ const Portfolio = () => {
       {/*Extracurricular*/}
       <Grid item xs={12}>
         <Typography variant="h5"  sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Extracurricular</Typography>
-        <Grid container spacing={2} marginBottom={4} className="edu-details-text">
+        <Grid container spacing={2} marginBottom={4}>
           {resumeData.extracurricular.map((skill) => (
             <Grid item xs={6}  key={skill.name}>
             <Card className="skill-card">
               <CardContent>
                 <img src={skill.icon} height={"80px"} width={"80px"} style={{marginTop: "10px", marginBottom: "10px"}} />
-                <Typography variant="h6" sx={{color: skill.color, fontWeight: "bold"}}>{skill.name}</Typography>
+                <Typography variant="h6">{skill.name}</Typography>
               </CardContent>
             </Card>
           </Grid>

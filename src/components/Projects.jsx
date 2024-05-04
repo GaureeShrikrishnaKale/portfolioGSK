@@ -36,47 +36,65 @@ const Projects = () => {
     }
   },[indexImage])
   return (
-  <Grid className="center-column">
-    <Grid>
-      <video src={smokebg} autoPlay muted></video>
-      <Typography className="project-title">
-        {/* My Projects */}
-        <span>M</span>
-        <span>Y</span>
-        <span>P</span>
-        <span>R</span>
-        <span>O</span>
-        <span>J</span>
-        <span>E</span>
-        <span>C</span>
-        <span>T</span>
-        <span>S</span>
-      </Typography>
-    </Grid>
+  <>
+    <Grid className="center-column">
+      <Grid sx={{display: {
+      xs: 'none',
+      sm: 'none',
+      md: 'none',
+      lg: 'flex',
+      xl: 'none',
+    }}}>
+        <video src={smokebg} autoPlay muted></video>
+        <Typography className="project-title">
+          {/* My Projects */}
+          <span>M</span>
+          <span>Y</span>
+          <span>P</span>
+          <span>R</span>
+          <span>O</span>
+          <span>J</span>
+          <span>E</span>
+          <span>C</span>
+          <span>T</span>
+          <span>S</span>
+        </Typography>
+      </Grid>
 
-    <Grid className="slider">
-      <Grid className="slide-track">
+      <Grid sx={{display: {
+      xs: 'flex',
+      sm: 'flex',
+      md: 'flex',
+      lg: 'none',
+      xl: 'flex',
+    }, flexDirection: 'column',  textAlign: "center"}}>
+        <Typography sx={{color: "white", textAlign: "center", fontSize: "30px", fontWeight: "bold"}}>My Projects</Typography>
+      </Grid>
 
-        {data.map((project, i) => (
-           <Grid className="slide" display={indexImage === i ? "flex" : "none"}>
-              <Typography sx={{color: "white", fontSize: "20px"}}>{project.name}</Typography>
-              <Typography sx={{color: "white"}}>{project.description}</Typography>
-           <img src={project.image} alt="images"/>
-         </Grid>
-        ))}
+      <Grid className="slider">
+        <Grid className="slide-track">
 
-        <Grid className="slide-controls">
-          <Button id="prev-btn" onClick={() => handlePrevClick()}>
-            <ArrowLeft sx={{fontSize: "30px"}}/>
-          </Button>
+          {data.map((project, i) => (
+            <Grid className="slide" display={indexImage === i ? "flex" : "none"}>
+                <Typography sx={{color: "white", fontSize: "20px"}}>{project.name}</Typography>
+                <Typography sx={{color: "white"}}>{project.description}</Typography>
+            <img src={project.image} alt="images"/>
+          </Grid>
+          ))}
 
-          <Button id="next-btn" onClick={() => handleNextClick()}>
-            <ArrowRight sx={{fontSize: "30px"}}/>
-          </Button>
+          <Grid className="slide-controls">
+            <Button id="prev-btn" onClick={() => handlePrevClick()}>
+              <ArrowLeft sx={{fontSize: "30px"}}/>
+            </Button>
+
+            <Button id="next-btn" onClick={() => handleNextClick()}>
+              <ArrowRight sx={{fontSize: "30px"}}/>
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
-  </Grid>
+  </>
   )
 };
 
