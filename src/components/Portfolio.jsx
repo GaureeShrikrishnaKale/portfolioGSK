@@ -34,7 +34,7 @@ const Portfolio = () => {
   return (
     <Grid container item xs={12} spacing={4} overflow="auto">
       {/* Personal Info */}
-        <Grid item xs={12} lg={4} display={"flex"} justifyContent={"center"}>
+        <Grid item xs={12} lg={4} display={"flex"} justifyContent={"center"} marginBottom={5} marginTop={5}>
         <Grid className="box">
           <Grid className="content">
             <img src={profileImage}/>
@@ -46,7 +46,7 @@ const Portfolio = () => {
           </Grid>
         </Grid>
         </Grid>
-        <Grid item xs={12} lg={8} sx={{color: "white", alignSelf: "center", display: "flex", flexDirection: "column", justifyContent: "center"}} >
+        <Grid item xs={12} lg={8} marginBottom={5} marginTop={5} sx={{color: "white", alignSelf: "center", display: "flex", flexDirection: "column", justifyContent: "center"}}>
           <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2 }}>
             Personal Information
           </Typography>
@@ -75,8 +75,11 @@ const Portfolio = () => {
           
         </Grid>
 
+      <Grid className="horizontal-line">
+      </Grid>
+
       {/* Skills */}
-      <Grid item xs={12}>
+      <Grid item xs={12} marginBottom={5}>
         <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Skills</Typography>
         {/* Cards for each skill */}
         <Grid container xs={12} spacing={2}>
@@ -97,8 +100,11 @@ const Portfolio = () => {
         </Grid>  
       </Grid>
 
+      <Grid className="horizontal-line">
+      </Grid>
+
       {/*Other Skills*/}
-      <Grid item xs={12}>
+      <Grid item xs={12} marginBottom={4}>
         <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Other Skills</Typography>
         {/* Cards for each skill */}
         <Grid container xs={12} spacing={2}>
@@ -112,8 +118,12 @@ const Portfolio = () => {
         </Grid>
       </Grid>
 
-      {/* Educational Journey */}
-      <Grid item xs={12} sm={6}>
+      <Grid className="horizontal-line">
+      </Grid>
+
+      <Grid container xs={12} className="row" marginTop={4}>
+        {/* Educational Journey */}
+      <Grid item xs={12} md={6} sx={{ paddingLeft: { xs: 2, sm: 10, md: 15, lg: 20, xl: 30 } }}>
         <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Education</Typography>
         <Grid container xs={12} spacing={2}>
           <Grid item xs={12}>
@@ -164,62 +174,75 @@ const Portfolio = () => {
                 </Typography>
               </Grid>
             </Grid>
-                
           </Grid>
         </Grid>
       </Grid>
 
       {/* Experience */}
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} md={6} sx={{ paddingLeft: { xs: 2, sm: 10 }, paddingTop: {xs: 5, sm: 5, md: 0} }}>
         <Typography variant="h5" sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Experience</Typography>
         <Grid container xs={12} spacing={2}>
-          <Grid item xs={12} >
-                <Typography>
+          <Grid item xs={12}>
+          <Grid className="row">
+              <Grid>
+                <SchoolIcon className="icon-education"/>
+                <Grid className="vertical-line">
+                </Grid>
+              </Grid>
+              <Grid className="edu-details-text">
+              <Typography className="year-text">
                   {resumeData.experiance.internship.duration}
                 </Typography>
-                <Typography>
-                  {resumeData.experiance.internship.name}
+                <Typography variant="h6">
+                 Internship:  {resumeData.experiance.internship.name}
                 </Typography>
-                <Grid container spacing={2}>
-                  {resumeData.experiance.internship.skills.map((skill) => (
-                    <Grid item xs={6} md={3} key={skill}>
-                      <Paper>{skill}</Paper>
-                    </Grid>
-                  ))}
-                </Grid>
+                  <Grid className="skill-text">
+                    {resumeData.experiance.internship.skills.map((skill) => (   
+                      <Typography variant="h6">{skill}</Typography>
+                    ))}
+                  </Grid>
+              </Grid>
+            </Grid>
           </Grid>
-          <Grid item xs={12} >
-                <Typography>
-                  {resumeData.experiance.fullTime.duration}
-                </Typography>
-                <Typography>
-                  {resumeData.experiance.fullTime.name}
-                </Typography>
-                <Grid container spacing={2}>
-                  {resumeData.experiance.fullTime.skills.map((skill) => (
-                    <Grid item xs={6} md={3} key={skill}>
-                      <Paper>{skill}</Paper>
-                    </Grid>
-                  ))}
+          <Grid item xs={12}>
+          <Grid className="row">
+              <Grid>
+                <SchoolIcon className="icon-education"/>
+                <Grid className="vertical-line">
                 </Grid>
+              </Grid>
+              <Grid className="edu-details-text">
+              <Typography className="year-text">
+                {resumeData.experiance.fullTime.duration}
+              </Typography>
+                <Typography variant="h6">
+                {resumeData.experiance.fullTime.name}
+                </Typography>
+                  <Grid className="skill-text">
+                    {resumeData.experiance.fullTime.skills.map((skill) => (   
+                      <Typography variant="h6">{skill}</Typography>
+                    ))}
+                  </Grid>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
+      </Grid>
 
-         {/*Extracurricular*/}
-         <Grid item xs={12}>
-        <Typography variant="h5" sx={{color: "white", textAlign: "center"}}>Extracurricular</Typography>
-        {/* Cards for each skill */}
-        <Grid container spacing={2}>
-          {/* Map over skills and create a card for each skill */}
+      {/*Extracurricular*/}
+      <Grid item xs={12}>
+        <Typography variant="h5"  sx={{ fontSize: "30px", fontWeight: "bold", mb: 2, color: "white" }}>Extracurricular</Typography>
+        <Grid container spacing={2} marginBottom={4} className="edu-details-text">
           {resumeData.extracurricular.map((skill) => (
-            <Grid item xs={12}  key={skill}>
-              <Card>
-                <CardContent>
-                  <Typography variant="h6">{skill}</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            <Grid item xs={6}  key={skill.name}>
+            <Card className="skill-card">
+              <CardContent>
+                <img src={skill.icon} height={"80px"} width={"80px"} style={{marginTop: "10px", marginBottom: "10px"}} />
+                <Typography variant="h6" sx={{color: skill.color, fontWeight: "bold"}}>{skill.name}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
           ))}
         </Grid>
       </Grid>

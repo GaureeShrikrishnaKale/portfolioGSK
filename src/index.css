@@ -485,3 +485,40 @@ code {
   margin-left: 10px;
   margin-top: 5px;
 }
+
+.skill-text {
+  display: flex;
+  flex-direction: row;
+}
+
+.skill-text h6 {
+  font-size: 12px !important;
+  border-radius: 12px;
+  background-color: #03a9f4;
+  padding-right: 12px;
+  margin-right: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.horizontal-line {
+  height: 1px;
+  width: 50%;
+  background-color: black;
+  margin: 0 auto; 
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.extracurricular-circle {
+  text-align: center;
+  align-self: center;
+}
+
+.extracurricular-circle h5 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center !important;
+  color: #00ccff !important;
+  z-index: 999;
+}

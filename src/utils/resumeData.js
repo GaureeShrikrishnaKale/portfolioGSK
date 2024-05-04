@@ -18,7 +18,8 @@ import GithubIcon from "../assets/images/github-mark-white.svg";
 import GitIcon from "../assets/images/git-icon3.webp";
 import MUIIcon from "../assets/images/mui-icon.png";
 import VSCodeIcon from "../assets/images/vscode-icon.webp";
-
+import ReadingIcon from "../assets/images/reading-icon.webp";
+import FluteIcon from "../assets/images/flute-icon.png";
 
 export default {
   name: "Gauree Shrikrishna Kale",
@@ -53,7 +54,10 @@ export default {
     {name: "Git", icon: GitIcon, color: "#DF4C37"},
     {name: "MUI", icon: MUIIcon, color: "#0080FF"}, 
   ],
-  extracurricular: ["Reading", "Exploring music with the Bamboo Flute!"],
+  extracurricular: [
+    {name: "Reading", icon: ReadingIcon}, 
+    {name: "Exploring music with the Bamboo Flute!", icon: FluteIcon}
+  ],
   educational: {
     SSC: {
       name: "Shri Bhausaheb Potey Vidyalay Akot.",
@@ -74,12 +78,12 @@ export default {
 
   experiance: {
     internship: {
-      name: "Pratiti Technologies",
+      name: "Pratiti Technologies Pvt. Ltd, Pune.",
       duration: "January - April 2023",
-      skills: ["C++", "C# dotNet", "React", "MS SQL"],
+      skills: ["C++", "C# .Net", "ReactJS", "MS SQL"],
     },
     fullTime: {
-      name: "Pratiti Technologies",
+      name: "Pratiti Technologies Pvt. Ltd, Pune.",
       duration: "August 2023 - Present",
       skills: ["C# dotNet", "React", "PostgreSql"],
     },
