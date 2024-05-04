@@ -52,7 +52,7 @@ export const HomeHeader = () => {
           <NavLink to="/" text="Home" />
           <NavLink to="/portfolio" text="Portfolio" />
           <NavLink to="/projects" text="Projects" />
-          <NavLink to="/contact" text="Contact" />
+          {/* <NavLink to="/contact" text="Contact" /> */}
           <Grid item>
             <DarkMode sx={{ color: "white", cursor: "pointer" }} />
           </Grid>
