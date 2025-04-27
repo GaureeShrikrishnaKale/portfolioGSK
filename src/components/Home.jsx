@@ -1,6 +1,5 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import userImage from "../assets/images/UserImage.png"; // Replace with the actual path to your image
 import profileImage from "../assets/images/UserImage.png";
 import {useNavigate} from "react-router-dom";
 

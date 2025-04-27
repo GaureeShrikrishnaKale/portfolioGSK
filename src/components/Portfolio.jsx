@@ -4,14 +4,12 @@ import {
   Card,
   CardContent,
   Grid,
-  Paper,
   Typography,
 } from "@mui/material";
 import resumeData from "../utils/resumeData";
-import resume from "../assets/Resume/GaureeKaleResume.pdf";
+import resume from "../assets/Resume/Gauree_Kale_Resume.pdf";
 import profileImage from "../assets/images/UserImage.png";
 import { Download } from "@mui/icons-material";
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 import SchoolIcon from '@mui/icons-material/School';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 
@@ -21,7 +19,7 @@ const Portfolio = () => {
     // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = cvUrl;
-    link.download = 'GaureeKaleResume.pdf'; // Set the filename for download
+    link.download = 'Gauree_Kale_Resume.pdf'; // Set the filename for download
     document.body.appendChild(link);
 
     // Trigger the download
