@@ -31,7 +31,7 @@ export default {
   birthday: "07th February 2001",
   email: "kalegauree44@gmail.com",
   address: "24, Shivaji Colony Akola Road, Akot",
-  phone: "7741947640",
+  phone: "XXXXXXXX40",
   nationality: "Indian",
   languages: "English, Marathi, Hindi",
   skills: [
